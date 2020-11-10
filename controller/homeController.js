@@ -11,7 +11,11 @@ module.exports.verifyToken_post = (req,res) => {
     let {token} = req.body;
 
     firebaseApp.admin.auth().verifyIdToken(token)
-    .then(decodedId => res.json({uId : decodedId.uid}))
+    .then(decodedId => {
+        firebaseApp.admin.auth().getUserByEmail(decodedId.email)
+        .then(user => res.json({uId : user.uid, email : user.email}))
+        .catch(err => res.json({err : err.message}))
+    })
     .catch(err => res.json({err : err.message}))
     
 }
