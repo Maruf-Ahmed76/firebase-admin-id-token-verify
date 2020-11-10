@@ -1,0 +1,1 @@
+## Edit model/firebaseConfig.js with your own firebase config info
