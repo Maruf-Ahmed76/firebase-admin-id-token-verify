@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Test</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <form>
+            <input type="text" name="token" id="token" placeholder="Token">
+            <button type="submit" class="submitBtn" id="submit">Test</button>
+        </form>
+        <!-- Result message -->
+        <p class="error"></p>
+        <p class="message"></p>
+    </div>
+
+    <script>
+        let form = document.querySelector('form');
+        let errDom = document.querySelector(".error");
+        let messageDom = document.querySelector(".message");
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            let token = form.token.value;
+            try{
+                const res = await fetch("/" , {
+                    method : "POST",
+                    body : JSON.stringify({token}),
+                    headers : {'Content-Type' : 'application/json'}
+                })
+
+                const data = await res.json();
+
+                if(data.err) errDom.innerHTML = data.err
+                else messageDom.innerHTML = data.uId
+            }
+            catch (err) {
+                console.log(err.message)
+            }
+        })
+
+    </script>
+</body>
+</html>

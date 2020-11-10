@@ -1,0 +1,37 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#token{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 50%;
+}
+.submitBtn{
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    background: rgb(28, 129, 28);
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    cursor: pointer;
+}
+.error{
+    color: red;
+}
+.message{
+    color: green;
+}
