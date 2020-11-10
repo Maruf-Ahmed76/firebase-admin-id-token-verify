@@ -1,1 +1,1 @@
-## Edit model/firebaseConfig.js with your own firebase config info
+## Replace your own serviceAccountKey with 'key/serviceAccountKey.json'
